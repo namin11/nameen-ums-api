@@ -1,0 +1,26 @@
+<!-- Reset password web page -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% if (cms) { %>
+    <title><%-cms.title%></title>
+    <% }else{ %> CMS Page <% } %> <%- include('./partials/head.ejs'); %>
+  </head>
+  <!-- Setting styles for page -->
+  <style>
+    body {
+      margin-top: 50px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-justify">
+          <% if (cms) { %> <%-cms.content%> <% }else{ %>
+          <h3>Page Not Found</h3>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!-- Reset password web page -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>User verification</title>
+    <%- include('./partials/head.ejs'); %>
+  </head>
+  <style>
+    body {
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      /* background-image: linear-gradient(to bottom right, #f68800, #791a01); */
+    }
+    .logo {
+      text-align: center;
+    }
+    .logo img {
+      max-width: 300px;
+      margin-bottom: 30px;
+      width: 100%;
+    }
+    .title {
+      font-size: 30px;
+      color: #000;
+      font-weight: bold;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center logo">
+          <img src="<%=commonFunction.getLogoUrl()%>" alt="Logo" />
+        </div>
+        <div
+          class="col-lg-4 col-md-8 col-sm-8 col-xs-12 col-lg-offset-4 col-md-offset-2 col-sm-offset-2"
+        >
+          <h3 class="text-center title">
+            <%- message %>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

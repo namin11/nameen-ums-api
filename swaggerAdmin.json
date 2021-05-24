@@ -1,0 +1,816 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "all api documation commonApp nodeJs",
+        "version": "1.0.0",
+        "title": "Swagger CommonAppNodeJs",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "tanvir@inheritx.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "localhost:3001",
+    "basePath": "",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/admin/get-all-users": {
+            "get": {
+                "summary": "get user deatils",
+                "x-swagger-router-controller": "bar",
+                "operationId": "impossible",
+                "tags": [
+                    "admin"
+                ],
+                "description": "",
+                "parameters": [
+
+                ],
+                "responses": {}
+            }
+        },
+        "/admin/get-all-users-excel": {
+            "get": {
+                "summary": "Finish Type list",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "admin"
+                ],
+                "parameters": [{
+                    "name": "Authorization",
+                    "in": "header",
+                    "description": "an authorization header, Please add Bearer keyword before token",
+                    "required": "true",
+                    "type": "string"
+                }],
+                "responses": {}
+            }
+        },
+        "/admin/active-deactive-user/{userId}": {
+            "put": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "admin"
+                ],
+                "parameters": [{
+                        "name": "userId",
+                        "in": "path",
+                        "description": "Enter userId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "description": "The user login",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "status"
+                            ],
+                            "properties": {
+                                "status": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/admin/delete-user/{userId}": {
+            "delete": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "admin"
+                ],
+                "parameters": [{
+                    "name": "userId",
+                    "in": "path",
+                    "description": "Enter userId",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {}
+            }
+        },
+
+        "/version/createVersion": {
+            "post": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "version"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "description": "Create version 'ANDROID' : 1 -'IOS' : 2,",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "version_number",
+                                "device_type",
+                                "is_force_update"
+                            ],
+                            "properties": {
+                                "version_number": {
+                                    "type": "string"
+                                },
+                                "device_type": {
+                                    "type": "number"
+                                },
+                                "is_force_update": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+
+        "/version/getAllVersionData": {
+            "get": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "version"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit",
+                        "required": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "sort by",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "for search",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+
+        "/cms/addCms": {
+            "post": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "CMS"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "user",
+                    "description": "Add cms",
+                    "schema": {
+                        "type": "object",
+                        "required": [
+                            "title",
+                            "slug",
+                            "content"
+                        ],
+                        "properties": {
+                            "title": {
+                                "type": "string"
+                            },
+                            "content": {
+                                "type": "string"
+                            },
+                            "slug": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }],
+                "responses": {}
+            }
+        },
+        "/cms/getCmsList": {
+            "get": {
+                "x-swagger-router-controller": "bar",
+                "description": "file_type:- 1-content 2-link",
+                "tags": [
+                    "CMS"
+                ],
+                "parameters": [
+
+                ],
+                "responses": {}
+            }
+        },
+
+        "/cms/editCms": {
+            "put": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "CMS"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "user",
+                    "description": "Add cms",
+                    "schema": {
+                        "type": "object",
+                        "required": [
+                            "title",
+                            "slug",
+                            "content"
+                        ],
+                        "properties": {
+                            "cmsId": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "content": {
+                                "type": "string"
+                            },
+                            "slug": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }],
+                "responses": {}
+            }
+        },
+        "/cms/getCmsDetails/{cmsId}": {
+            "get": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "CMS"
+                ],
+                "parameters": [{
+                    "name": "cmsId",
+                    "in": "path",
+                    "description": "Enter cmsId",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {}
+            }
+        },
+        "/cms/upload-cms/{cmsId}": {
+            "post": {
+                "summary": "Uploads a file.",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "tags": [
+                    "CMS"
+                ],
+                "parameters": [{
+                        "name": "cmsId",
+                        "in": "path",
+                        "description": "Enter cmsId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "zipFile",
+                        "type": "file",
+                        "required": true,
+                        "description": "The file to upload."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/cms/changeFileType": {
+            "put": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "CMS"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "user",
+                    "description": "Add cms",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "cmsId": {
+                                "type": "string"
+                            },
+                            "file_type": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }],
+                "responses": {}
+            }
+        },
+
+
+
+
+        "/contactUs/getContactUsList": {
+            "get": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "contactUs"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "status",
+                        "required": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit",
+                        "required": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "sort by",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "for search",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/contactUs/getcontactUsDetails/{contactUsId}": {
+            "get": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "contactUs"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "name": "contactUsId",
+                        "in": "path",
+                        "description": "Enter contactUsId",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/contactUs/closeContactRequest/{contactUsId}": {
+            "put": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "contactUs"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "name": "contactUsId",
+                        "in": "path",
+                        "description": "Enter contactUsId",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        "/emailTemplate/getAllEmailTemplate": {
+            "get": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "emailTemplate"
+                ],
+                "parameters": [
+
+                ],
+                "responses": {}
+            }
+        },
+        "/emailTemplate/createEmailTemplate": {
+            "post": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "emailTemplate"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "user",
+                    "description": "The user signUp",
+                    "schema": {
+                        "type": "object",
+                        "required": [
+                            "title",
+                            "keys",
+                            "subject",
+                            "body",
+                            "slug",
+                            "status"
+                        ],
+                        "properties": {
+                            "title": {
+                                "type": "string"
+                            },
+                            "keys": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "type": "string"
+                            },
+                            "body": {
+                                "type": "string"
+                            },
+                            "slug": {
+                                "type": "string"
+                            },
+                            "status": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                }],
+                "responses": {}
+            }
+        },
+        "/emailTemplate/deleteEmailTemplate/{emailTemplateId}": {
+            "delete": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "emailTemplate"
+                ],
+                "parameters": [{
+                    "name": "emailTemplateId",
+                    "in": "path",
+                    "description": "Enter emailTemplateId",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {}
+            }
+        },
+        "/emailTemplate/updateEmailTemplate/{emailTemplateId}": {
+            "put": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "emailTemplate"
+                ],
+                "parameters": [{
+                        "name": "emailTemplateId",
+                        "in": "path",
+                        "description": "Enter emailTemplateId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "description": "The user login",
+                        "schema": {
+                            "type": "object",
+                            "required": [],
+                            "properties": {
+                                "status": {
+                                    "title": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/emailTemplate/getSingleEmailTemplate/{id}": {
+            "get": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "emailTemplate"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "Enter emailTemplateId",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {}
+            }
+        },
+
+
+
+        "/smsTemplate/getAllSMSTemplate": {
+            "get": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "SMS"
+                ],
+                "parameters": [
+
+                ],
+                "responses": {}
+            }
+        },
+        "/smsTemplate/createSMSTemplate": {
+            "post": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "SMS"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "user",
+                    "description": "The user signUp",
+                    "schema": {
+                        "type": "object",
+                        "required": [
+                            "title",
+                            "keys",
+                            "subject",
+                            "body",
+                            "slug",
+                            "status"
+                        ],
+                        "properties": {
+                            "title": {
+                                "type": "string"
+                            },
+                            "keys": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "type": "string"
+                            },
+                            "body": {
+                                "type": "string"
+                            },
+                            "slug": {
+                                "type": "string"
+                            },
+                            "status": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                }],
+                "responses": {}
+            }
+        },
+        "/smsTemplate/getSingleSMSTemplate/{id}": {
+            "get": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "SMS"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "Enter SMSTemplateId",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {}
+            }
+        },
+        "/smsTemplate/deleteSMSTemplate/{id}": {
+            "delete": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "SMS"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "Enter SMSTemplateId",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {}
+            }
+        },
+        "/smsTemplate/updateSMSTemplate/{id}": {
+            "put": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "SMS"
+                ],
+                "parameters": [{
+                        "name": "id",
+                        "in": "path",
+                        "description": "Enter smsTemplateId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "description": "The user login",
+                        "schema": {
+                            "type": "object",
+                            "required": [],
+                            "properties": {
+                                "title": {
+                                    "type": "string"
+                                },
+                                "keys": {
+                                    "type": "string"
+                                },
+                                "subject": {
+                                    "type": "string"
+                                },
+                                "body": {
+                                    "type": "string"
+                                },
+                                "slug": {
+                                    "type": "string"
+                                },
+                                "status": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+
+
+        "/version/getAllVersionData123": {
+            "get": {
+                "x-swagger-router-controller": "bar",
+                "description": "",
+                "tags": [
+                    "version"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit",
+                        "required": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "sort by",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "for search",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/admin/all-student-result-list": {
+            "get": {
+                "summary": "get students results",
+                "x-swagger-router-controller": "bar",
+                "operationId": "impossible",
+                "tags": [
+                    "admin"
+                ],
+                "description": "",
+                "parameters": [
+
+                ],
+                "responses": {}
+            }
+        }
+    }
+}
